@@ -4,8 +4,12 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
+import eventRoutes from './routes/events.js';
+
 const app = express();
 dotenv.config();
+
+app.use('/events', eventRoutes);
 
 // To send large images
 app.use(bodyParser.json({limit: "30mb", extended: true}));
